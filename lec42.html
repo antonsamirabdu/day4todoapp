@@ -1,0 +1,133 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .colorRed{
+            background-color: red;
+        }
+        .cities .active{
+            background-color: red;
+        }
+        #countries .active{
+            background-color: yellow;
+        }
+        
+    </style>
+</head>
+<body onclick="bodyclick(event)">
+    <!--<h1 id="myh1" class="colorRed">Welcome</h1>
+    <p class="colorRed">Welcome</p>-->
+        <div>
+            <div>
+                <ul>
+
+                </ul>
+                <ul>
+                    <li>
+                        <a>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    <ul class="cities">
+        <li>Cairo
+        <li class="active">Alex
+        <li>Aswan
+    </ul>
+
+
+    <ul id="countries">
+        <li class="active">Egypt
+        <li>USA
+        <li>UK
+    </ul>
+    username :<input type="text" id="username" value="ahmedali" />
+    <div id="welcomemsg"></div>
+    <button onclick="showWelcomeMessage()" >Login</button>
+    <script>
+        console.log(document);
+        console.log({aa:document.documentElement});
+        console.log({aa:document.head});
+        console.log({aa:document.body});
+
+        
+        //function bodyclick(e){
+            //var myElement = document.getElementById("myh1");
+           // myElement.innerHTML="Bye Bye";
+           /* var myElements = document.getElementsByClassName("colorRed");
+            for(var i =0;i<myElements.length;i++){
+                myElements[i].innerHTML="Bye Bye"
+            }
+            */
+
+            /*
+            var liElements = document.getElementsByTagName("li");
+            for(var i =0;i<liElements.length;i++){
+                if(liElements[i].style.display!="none"){
+                    liElements[i].style.display="none";
+                }else{
+                    liElements[i].style.display="block";
+                }
+            }
+            */
+
+            //var activeCountry = document.querySelector("#countries .active");
+            //alert(activeCountry.innerHTML);
+
+
+            /*
+            var cities = document.querySelectorAll(".cities li");
+            for(var i = 0;i<cities.length;i++){
+                if(cities[i].className=="active"){
+                    //if(cities[i].classList.contains("active")){
+                    cities[i].style.backgroundColor="green"
+                }else{
+                    cities[i].style.backgroundColor="blue"
+                }
+            }
+            */
+           /*
+            var citiesContainer =  document.querySelector(".cities")
+            var cities = citiesContainer.querySelectorAll("li");
+            for(var i = 0;i<cities.length;i++){
+                if(cities[i].className=="active"){
+                    cities[i].style.backgroundColor="green"
+                }else{
+                    cities[i].style.backgroundColor="blue"
+                }
+            }
+            */
+            //var activeCity = document.querySelector(".cities .active");
+            //activeCity.style.backgroundColor="green";
+       // }
+        
+        //javascript as a progrmming language (input(prompt) processing output(alert))
+        //DOM
+
+        /*
+        function showWelcomeMessage(){
+            //input
+            var username = document.getElementById("username");
+            var myinput = username.value;
+            //var myinput = prompt("please enter your name");
+
+            //processing
+            var mymsg = "Welcome "+myinput;
+
+            //output
+            var mymsgDiv = document.getElementById("welcomemsg");
+            mymsgDiv.innerHTML = mymsg;
+
+            //alert(mymsg);
+        }
+        */
+
+     
+    </script>
+</body>
+</html>

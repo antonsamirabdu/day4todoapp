@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width:400px;
+            min-height: 300px;
+            background-color: lightgray;
+            border:gray solid 2px;
+            border-radius: 4px;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform: translate(-50%,-50%);
+            padding: 20px;
+        }
+
+        .taskList{
+            width:370px;
+            border:gray solid 2px;
+            border-radius: 4px;
+            background-color: white;
+            list-style: none;
+            padding:0px;
+            position:relative;
+        }
+        .task{
+            height: 40px;
+            line-height: 40px;
+            padding-left: 10px;
+            border-bottom: gray solid 2px;
+        }
+
+        .taskBtn{
+            float:right;
+        }
+
+        .taskDone{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" >
+        <ul id="taskList" class="taskList">
+            <!--<li class="task">Attend Lec 2 <button class="taskBtn">Done</button><button class="taskBtn">Delete</button></li>
+            <li  class="task">Attend Lec 2 <button class="taskBtn">Done</button><button class="taskBtn">Delete</button></li>
+            <li  class="task">Attend Lec 2 <button class="taskBtn">Done</button><button class="taskBtn">Delete</button></li>-->
+        </ul>
+        <hr/>
+        <div>
+            Task <input id="taskInput" type="text" /> <button onclick="add()">Add</button>
+        </div>
+    </div>
+    <script>
+        var tasks = [];
+
+        function displayTasks(){
+            var htmlArr = tasks.map(function(item){
+                return "<li class='task'>"+item+"<button onclick='markDone(event)' class='taskBtn'>Done</button><button class='taskBtn' onclick='deleteTask(\""+item+"\")'>Delete</button></li>"
+            
+            })
+            var htmlCode = htmlArr.join("");
+            var taskList = document.getElementById("taskList");
+            taskList.innerHTML=htmlCode;
+        }
+
+        function add(){
+            var taskInput = document.getElementById("taskInput");
+            tasks.push(taskInput.value);
+            displayTasks();
+            taskInput.value="";
+        }
+
+        function deleteTask(task){
+            var taskIndex = tasks.indexOf(task);
+            tasks.splice(taskIndex,1);
+            displayTasks();
+        }
+
+        function markDone(e){
+            e.target.parentNode.classList.toggle("taskDone")
+        }
+    </script>
+</body>
+</html>

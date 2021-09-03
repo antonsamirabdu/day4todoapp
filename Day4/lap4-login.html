@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Lap 4 Login</h1>
+    
+    <label><b>Username</b></label>
+      <input id="uname" type="text" placeholder="Enter Username"  >
+
+      <label><b>Password</b></label>
+      <input id="psw" type="password" placeholder="Enter Password"  >
+        
+      <button onclick="sign()">Login</button>
+      <div><h2 id="status" ></h2></div>
+        
+    <script>
+
+    var statusLine = document.getElementById("status");
+    function sign(){
+
+    
+   // alert(document.getElementById("uname").value)
+        if (document.getElementById("uname").value == "admin" && document.getElementById("psw").value == "123"){
+        statusLine.innerHTML="welcome";
+    }else if (document.getElementById("uname").value == "admin" && document.getElementById("psw").value != "123"){
+        stastatusLinetus.innerHTML="not registered";
+    }else if (document.getElementById("uname").value != "admin" && document.getElementById("psw").value == "123"){
+        statusLine.innerHTML="not registered";
+    }else {
+        statusLine.innerHTML="not registered";
+    }
+    
+    }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function pageLoaded(){
+            alert("page loaded")
+        }
+
+        function pageExit(){
+            alert("bye bye")
+        }
+    </script>
+</head>
+<body  onmousemove="myBtnMouseMove(event)" onload="pageLoaded()" onunload="pageExit()">
+    <div
+    id="myBtn"
+    onmouseover="myBtnMouseOver(event)"
+    onmouseout="myBtnMouseOut(event)"
+    oncontextmenu="displayCustomContextMenu(event)"  style="border:2px solid green; width:50px;height: 50px; border-radius: 5px;background-color: lightgreen;font-size:30px">
+
+    </div>
+    <div id="myContextMenu" style="display:none;width:100px;height:200px;background-color: black;color:white;position: absolute;">
+        <div style="width:100px;height:50px;font-size:30px;border:2px solid black;">
+        Open
+        </div>
+        <div style="width:100px;height:50px;font-size:30px;border:2px solid black;">
+            Delete
+            </div>
+            <div style="width:100px;height:50px;font-size:30px;border:2px solid black;">
+                Copy
+                </div>
+                <div style="width:100px;height:50px;font-size:30px;border:2px solid black;">
+                    Save
+                    </div>
+    </div>
+
+    <div id="cursorChild" style="width:20px;height:20px;display:block;position:absolute;background-color:red">
+
+    </div>
+    <form action="calc.html" method="GET" onsubmit="formSubmit(event)">
+        
+        Username:<input type="text" name="username" id="userName" onchange="alert(event.target.value)" onkeydown="userNameKeyDown(event)" onfocus="inputGotFocus(event)" onblur="inputLostFocus(event)"/>
+        <br/>Password:<input type="text" name="password" id="password" onchange="validatePassworx(event)" />
+        <input type="submit" value="login" />
+    </form>
+    Num1:<input type="text" id="num1" onkeypress="numsOnly(event)" />
+    <script>
+
+        function numsOnly(e){
+            var allnumbers = "$#0123456789";
+
+            if(allnumbers.indexOf(e.key) ==-1)
+            {
+                e.preventDefault();
+                
+            }
+        }
+
+        function displayCustomContextMenu(e){
+            console.log(e);
+            e.preventDefault();
+
+            myContextMenu.style.display="block";
+            myContextMenu.style.top = e.y+"px";
+            myContextMenu.style.left = e.x+"px";
+            e.target.style.backgroundColor="lightblue"
+        }
+
+        function myBtnMouseOver(e){
+            e.target.style.backgroundColor = "green"
+        }
+        function myBtnMouseOut(e){
+            e.target.style.backgroundColor="lightgreen";
+        }
+        function myBtnMouseMove(e){
+            //console.log(e);
+            cursorChild.style.top=(e.y+20)+"px";
+            cursorChild.style.left=(e.x+20)+"px";
+        }
+        function userNameKeyDown(e){
+            myBtn.innerHTML = e.key;
+            cursorChild.innerHTML=e.key;
+        }
+
+        function inputGotFocus(e){
+            e.target.style.backgroundColor="lightblue"
+        }
+        function inputLostFocus(e){
+            e.target.style.backgroundColor="white"
+        }
+        function validatePassworx(e){
+            if(e.target.value.length<8){
+                alert("password not valid");
+                e.target.focus();
+            }
+        }
+        function formSubmit(e){
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>
